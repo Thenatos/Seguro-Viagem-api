@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
+using SeguroViagem.Api.Dados;
+using SeguroViagem.Api.Modelos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SeguroViagem.Api.Dados;
-using SeguroViagem.Api.Modelos;
 
 namespace SeguroViagem.Api.Controllers
 {
@@ -16,20 +17,22 @@ namespace SeguroViagem.Api.Controllers
     {
         private readonly AppDbContext _context;
 
+        //Construtor que recebe o contexto do banco de dados via Injeção de Dependência.
         public SegurosController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Seguros
         [HttpGet]
+        // Endpoint para LISTAR todos os seguros.
         public async Task<ActionResult<IEnumerable<Seguro>>> GetSeguros()
         {
             return await _context.Seguros.ToListAsync();
         }
 
-        // GET: api/Seguros/5
+
         [HttpGet("{id}")]
+        // Endpoint para OBTER um seguro específico pelo ID.
         public async Task<ActionResult<Seguro>> GetSeguro(int id)
         {
             var seguro = await _context.Seguros.FindAsync(id);
@@ -42,8 +45,9 @@ namespace SeguroViagem.Api.Controllers
             return seguro;
         }
 
-        // PUT: api/Seguros/5 (EDITAR)
+
         [HttpPut("{id}")]
+        // Endpoint para ATUALIZAR um seguro existente.
         public async Task<IActionResult> PutSeguro(int id, Seguro seguro)
         {
             if (id != seguro.Id)
@@ -72,8 +76,9 @@ namespace SeguroViagem.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Seguros (CRIAR)
+
         [HttpPost]
+        // Endpoint para CRIAR um novo seguro.
         public async Task<ActionResult<Seguro>> PostSeguro(Seguro seguro)
         {
             _context.Seguros.Add(seguro);
@@ -82,8 +87,9 @@ namespace SeguroViagem.Api.Controllers
             return CreatedAtAction(nameof(GetSeguro), new { id = seguro.Id }, seguro);
         }
 
-        // DELETE: api/Seguros/5 (EXCLUIR)
+
         [HttpDelete("{id}")]
+        // Endpoint para DELETAR um seguro existente.
         public async Task<IActionResult> DeleteSeguro(int id)
         {
             var seguro = await _context.Seguros.FindAsync(id);
@@ -97,7 +103,7 @@ namespace SeguroViagem.Api.Controllers
 
             return NoContent();
         }
-
+        // Método auxiliar para verificar se um seguro existe no banco de dados.
         private bool SeguroExists(int id)
         {
             return _context.Seguros.Any(e => e.Id == id);

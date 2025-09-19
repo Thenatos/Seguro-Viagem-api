@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using SeguroViagem.Api.Modelos; // Adicione este using se ele não existir
+using SeguroViagem.Api.Modelos;
 
-namespace SeguroViagem.Api.Modelos
+namespace SeguroViagem.Api.Modelos 
 {
     public class Seguro
     {

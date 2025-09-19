@@ -4,10 +4,10 @@
 
 namespace SeguroViagem.Api.Migrations
 {
-    /// <inheritdoc />
+    
     public partial class AdicionaTipoPlano : Migration
     {
-        /// <inheritdoc />
+        // Define as operações a serem aplicadas ao banco de dados na migração
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
@@ -18,7 +18,7 @@ namespace SeguroViagem.Api.Migrations
                 defaultValue: 0);
         }
 
-        /// <inheritdoc />
+        // Define as operações a serem revertidas na migração
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(

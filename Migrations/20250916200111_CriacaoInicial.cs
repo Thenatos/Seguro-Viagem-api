@@ -5,16 +5,16 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SeguroViagem.Api.Migrations
 {
-    /// <inheritdoc />
+   
     public partial class CriacaoInicial : Migration
     {
-        /// <inheritdoc />
+        // Define as operações a serem aplicadas ao banco de dados na migração
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Seguros",
                 columns: table => new
-                {
+                {// Define as colunas da tabela "Seguros"
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NomeContratante = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -23,15 +23,15 @@ namespace SeguroViagem.Api.Migrations
                     DataInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataFim = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
-                constraints: table =>
+                constraints: table =>// Define a chave primária da tabela
                 {
                     table.PrimaryKey("PK_Seguros", x => x.Id);
                 });
         }
 
-        /// <inheritdoc />
+        
         protected override void Down(MigrationBuilder migrationBuilder)
-        {
+        {// Define as operações a serem revertidas na migração
             migrationBuilder.DropTable(
                 name: "Seguros");
         }

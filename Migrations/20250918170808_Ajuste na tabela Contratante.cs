@@ -4,10 +4,10 @@
 
 namespace SeguroViagem.Api.Migrations
 {
-    /// <inheritdoc />
+    
     public partial class AjustenatabelaContratante : Migration
     {
-        /// <inheritdoc />
+        // Define as operações a serem aplicadas ao banco de dados na migração
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
@@ -19,9 +19,9 @@ namespace SeguroViagem.Api.Migrations
                 oldType: "nvarchar(max)");
         }
 
-        /// <inheritdoc />
+        // Define as operações a serem revertidas na migração
         protected override void Down(MigrationBuilder migrationBuilder)
-        {
+        {// Reverte a coluna "NomeContratante" para não permitir valores nulos
             migrationBuilder.AlterColumn<string>(
                 name: "NomeContratante",
                 table: "Seguros",

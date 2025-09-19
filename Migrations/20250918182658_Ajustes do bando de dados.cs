@@ -4,10 +4,10 @@
 
 namespace SeguroViagem.Api.Migrations
 {
-    /// <inheritdoc />
+
     public partial class Ajustesdobandodedados : Migration
     {
-        /// <inheritdoc />
+        // Define as operações a serem aplicadas ao banco de dados na migração
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
@@ -21,7 +21,7 @@ namespace SeguroViagem.Api.Migrations
                 oldNullable: true);
         }
 
-        /// <inheritdoc />
+        // Define as operações a serem revertidas na migração
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(

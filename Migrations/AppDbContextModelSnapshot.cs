@@ -12,7 +12,7 @@ namespace SeguroViagem.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
-    {
+    {// Representa um snapshot do modelo do banco de dados para o contexto AppDbContext
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
@@ -21,13 +21,13 @@ namespace SeguroViagem.Api.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
+            // Configuração da entidade "Seguro"
             modelBuilder.Entity("SeguroViagem.Api.Modelos.Seguro", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
+                    // Configuração para usar colunas de identidade no SQL Server
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CpfContratante")
