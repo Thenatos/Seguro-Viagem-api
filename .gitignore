@@ -1,0 +1,19 @@
+# Arquivos de configuração de usuário e temporários
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de build
+[Bb]in/
+[Oo]bj/
+
+# Arquivos de configurações locais que podem conter senhas
+appsettings.Development.json
+
+# Logs
+[Ll]ogs/
+
+# Cache do Rider/VS Code
+.idea/
+.vs/
